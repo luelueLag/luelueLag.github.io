@@ -1,12 +1,9 @@
-<!-- redirect.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="3;url=index.html">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -33,6 +30,40 @@
     </style>
 </head>
 <body>
-    <a href="first.html">秘密入口</a>
+    <a href="#" onclick="askQuestion()">秘密入口</a>
+
+    <script>
+        function askQuestion() {
+            var answer = prompt("回答下面的问题才能进入秘密入口：\n你最爱的人是 ?");
+
+            // 判断用户的答案是否正确
+            if (answer === "李豪翔") {
+                // 如果答对，进行页面跳转
+                window.location.href = "first.html";
+            }else if (answer.toLowerCase().includes("没有")){
+                alert("你有的");
+            }else if (answer.toLowerCase().includes("滚") || answer.toLowerCase().includes("gun")){
+                alert("对不起,我爱你");
+            }else if (answer.toLowerCase().includes("不爱")){
+                alert("我爱你");
+            }else if (answer.toLowerCase().includes("不知道")){
+                alert("你知道的");
+            }else if (answer.toLowerCase().includes("李")){
+                alert("答对啦,就差一点点");
+            }else if (answer.toLowerCase().includes("许诗怡") || answer.toLowerCase().includes("自己")){
+                alert("爱自己是的很对的,但回答不包括自己");
+            }else if (answer.toLowerCase().includes("猪")){
+                alert("可以说我是猪,但我只能是你的猪猪");
+            }else if (answer.toLowerCase().includes("lhx")){
+                alert("答对拉,但不是缩写哟");
+            }else if (answer.toLowerCase().includes("不") || (answer.trim() === "")){
+                alert("对不起,亲爱的,这是一定要回答的问题");
+            }
+            else {
+                // 如果答错，给出提示或者采取其他操作
+                alert("答案不正确，请再试一次！");
+            }
+        }
+    </script>
 </body>
 </html>
