@@ -33,7 +33,7 @@
 
         nav a {
             text-decoration: none;
-            color: #fff;
+            color: #ffffff;
             margin: 0 15px;
             font-size: 18px;
         }
@@ -73,7 +73,7 @@
             text-align: center;
             /*margin-top: 100px;*/
             font-size: 36px;
-            color: #333;
+            color: #333333;
             letter-spacing: 2px;
         }
         #text {
@@ -83,7 +83,7 @@
         }
 
 
-        /*针对 是或不是*/
+        /*针对 原谅或不原谅*/
         a {
             display: inline-block;
             padding: 10px 20px;
@@ -116,15 +116,13 @@
     </nav>
     <main>
         <h1>Dear,请允许我问几个小问题</h1>
-        <p>在这个浪漫的夜晚，我们共同分享爱的奇迹。让心灵沉浸在温馨的光芒中，感受爱的甜蜜。</p>
+        <iframe id="questionIframe" width="520" height="99" src="question1.html" frameborder="0"></iframe>
     </main>
     <footer>
-        <a href="#">是</a>
-        <a href="#">不是</a>
+        <a href="#" onclick="askQuestion()">原谅他</a>
+        <a href="#" onclick="showCannotForgive()">无法原谅</a>
     </footer>
 </body>
-
-
 
     <!--鼠标点击触发图案-->
     <script type="text/javascript">
@@ -230,12 +228,14 @@ img.onload = function () { startSakura(); }
         });
     </script>
 
+
     <!--自由平等-->
     <script type="text/javascript">
         var a_idx = 0;
         jQuery(document).ready(function($) {
             $("body").click(function(e) {
-                var a = new Array("❤花好月圆❤","❤海誓山盟❤","❤琴瑟和鸣❤","❤如胶似漆❤","❤情非得已❤","❤情比金坚❤","❤鸾凤和鸣❤","❤笑逐颜开❤","❤心驰神往❤","❤真心实意❤","❤深情厚意❤","❤恩恩爱爱❤","❤我有一个❤","❤很爱很爱很爱的人❤","❤我爱你❤","❤miss you❤","❤ask you❤","❤❤");
+                var a = new Array("❤原谅我好不好❤","❤花好月圆❤","❤海誓山盟❤","❤原谅他吧❤","❤琴瑟和鸣❤","❤如胶似漆❤","❤情非得已❤","❤情比金坚❤","❤鸾凤和鸣❤","❤笑逐颜开❤","❤心驰神往❤","❤真心实意❤","❤深情厚意❤","❤恩恩爱爱❤","❤我有一个❤","❤很爱很爱很爱的人❤","❤我爱你❤","❤miss you❤","❤ask you❤","❤❤");
+                // var a = new Array("❤花好月圆❤","❤海誓山盟❤","❤琴瑟和鸣❤","❤如胶似漆❤","❤情非得已❤","❤情比金坚❤","❤鸾凤和鸣❤","❤笑逐颜开❤","❤心驰神往❤","❤真心实意❤","❤深情厚意❤","❤恩恩爱爱❤","❤我有一个❤","❤很爱很爱很爱的人❤","❤我爱你❤","❤miss you❤","❤ask you❤","❤❤");
                 // var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
                 var $i = $("<span></span>").text(a[a_idx]);
                 a_idx = (a_idx + 1) % a.length;
@@ -262,7 +262,6 @@ img.onload = function () { startSakura(); }
         });
     </script>
 
-&nbsp;
     <!--写字-->
     <script>
         var ori_text = "I Love You ❤❤❤ I Love You ❤❤❤ I Love You Very Much ❤❤❤❤❤❤❤";
@@ -322,4 +321,48 @@ img.onload = function () { startSakura(); }
         };
     </script>
 
+    <!--点击 '原谅他'-->
+    <script>
+        function askQuestion() {
+            var answer = prompt("请问 李豪翔 最爱的人是谁?");
+
+            // 判断用户的答案是否正确
+            if (answer === "许诗怡宝宝") {
+                // 如果答对，进行页面跳转
+                window.location.href = "second.html";
+            }else if (answer.toLowerCase().includes("许诗怡")){
+                alert("答对啦!但后面还差两个字[提示:叠字]")
+            }else if (answer.toLowerCase().includes("许")){
+                alert("还差一丢丢~")
+            }else if (answer.toLowerCase().includes("你猜")){
+                alert("我不猜~");
+            }else if (answer.toLowerCase().includes("滚") || answer.toLowerCase().includes("gun")){
+                alert("不要叫我gun哇 宝宝~");
+            }else if (answer.toLowerCase().includes("不爱")){
+                alert("我爱你");
+            }else if (answer.toLowerCase().includes("不知道")){
+                alert("你知道的");
+            } else if (answer.toLowerCase().includes("猪")){
+                alert("可以说我是猪,但我只能是你的猪猪");
+            }else if (answer.toLowerCase().includes("不") || (answer.trim() === "")){
+                alert("sorry,亲爱的,这是一定要回答的问题");
+            }
+            else {
+                // 如果答错，给出提示或者采取其他操作
+                alert("再想想~~");
+            }
+        }
+    </script>
+
+    <!--点击 '无法原谅'-->
+    <script>
+        function showCannotForgive() {
+            alert("不要先着急着选择不原谅,先原谅他一下.\n" +
+                "我知道你的心情很不好\n" +
+                "我也知道你已经原谅他很多次\n" +
+                "我也知道你已经不想在原谅他了\n" +
+                "可是就看在....\n" +
+                "你先原谅他一下吧");
+        }
+    </script>
 </html>
