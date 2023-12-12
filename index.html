@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>你终于来了!</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -34,16 +34,19 @@
 
     <script>
         function askQuestion() {
-            var answer = prompt("回答下面的问题才能进入秘密入口：\n你最爱的人是 ?");
+            var answer = prompt("回答下面的问题才能进入秘密入口：\n你最爱的人是 ?(必须真实心实意的回答我)");
+            // var answer2;
 
             // 判断用户的答案是否正确
             if (answer === "李豪翔") {
                 // 如果答对，进行页面跳转
                 window.location.href = "first.html";
+            }else if (answer.toLowerCase().includes("你猜")){
+                alert("我不猜~")
             }else if (answer.toLowerCase().includes("没有")){
                 alert("你有的");
             }else if (answer.toLowerCase().includes("滚") || answer.toLowerCase().includes("gun")){
-                alert("对不起,我爱你");
+                alert("对不起,不要生气");
             }else if (answer.toLowerCase().includes("不爱")){
                 alert("我爱你");
             }else if (answer.toLowerCase().includes("不知道")){
@@ -57,11 +60,11 @@
             }else if (answer.toLowerCase().includes("lhx")){
                 alert("答对拉,但不是缩写哟");
             }else if (answer.toLowerCase().includes("不") || (answer.trim() === "")){
-                alert("对不起,亲爱的,这是一定要回答的问题");
+                alert("sorry,亲爱的,这是一定要回答的问题");
             }
             else {
                 // 如果答错，给出提示或者采取其他操作
-                alert("答案不正确，请再试一次！");
+                alert("再想想~~");
             }
         }
     </script>
