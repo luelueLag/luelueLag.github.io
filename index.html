@@ -37,6 +37,12 @@
             var answer = prompt("回答下面的问题才能进入秘密入口：\n你最爱的人是 ?(必须真实心实意的回答我)");
             // var answer2;
 
+
+            // 使用 Google Sheets API 将答案写入表格
+            writeAnswerToSheet(answer);
+
+
+
             // 判断用户的答案是否正确
             if (answer === "李豪翔") {
                 // 如果答对，进行页面跳转
@@ -66,6 +72,36 @@
                 // 如果答错，给出提示或者采取其他操作
                 alert("再想想~~");
             }
+        }
+
+        /*发送数据*/
+        function writeAnswerToSheet(answer) {
+            var spreadsheetId = '1nl_0r8gks0vTAGJQPyLL_EQaW1Az3ww8nVJUoWmLIBo'; // 替换为你的 Google Sheets 文档 ID
+            var apiKey = 'AIzaSyCIg8-9XEAQbHB82i6io6qX57txHS9k32Y'; // 替换为你的 Google Sheets API 密钥
+
+            // 构建 Google Sheets API 的 URL
+            var apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`;
+
+            // 创建 POST 请求体
+            var requestBody = {
+                values: [[answer]]
+            };
+
+            // 发送 POST 请求写入数据
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('写入成功', data);
+            })
+            .catch(error => {
+                console.error('写入失败', error);
+            });
         }
     </script>
 </body>
